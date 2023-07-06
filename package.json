@@ -4,7 +4,10 @@
   "description": "",
   "scripts": {
     "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
-    "install": "cd frontend && npm i && cd .. && cd backend && npm i && cd .."
+    "install": "cd frontend && npm i && cd .. && cd backend && npm i && cd ..",
+    "render:start": "cd backend && node server.cjs",
+    "render:buildCommand": "npm run install && cd frontend && npm run build && cd .."
+
   },
   "keywords": [],
   "author": "",
