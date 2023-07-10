@@ -9,7 +9,7 @@ export const ImageCard = ({ image, deleteImage }) => {
       <Card.Body>
         <Card.Title>{image.title.toUpperCase()}</Card.Title>
         <Card.Text>{image.description || image.alt_description}</Card.Text>
-        <Button variant="primary" onClick={() => deleteImage(image.id)}>
+        <Button variant="primary" onClick={() => deleteImage(image._id)}>
           Delete
         </Button>
       </Card.Body>

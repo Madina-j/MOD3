@@ -1,32 +1,48 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Header } from "./components/Header";
 import { Search } from "./components/Search";
 import { ImageCard } from "./components/ImageCard";
 import { Welcome } from "./components/Welcome";
 import { Container, Row, Col } from "react-bootstrap";
+import { context } from "./contexts/ContextProvider";
+import axios from "axios";
 
-const UNSPLASH_KEY = "vI6JHehkjv1HAUdTi7wq7fzjV5iIMo55JF9QW4P81n8";
+// const UNSPLASH_KEY = "vI6JHehkjv1HAUdTi7wq7fzjV5iIMo55JF9QW4P81n8";
 
 const App = () => {
   const [word, setWord] = useState("");
-  const [images, setImages] = useState([]);
-  const handleSearchSubmit = (e) => {
+  const { images, setImages } = useContext(context);
+
+  useEffect(() => {
+    const fetchImagesFromExpress = async () => {
+      const { data } = await axios.get("http://localhost:5000/api/images");
+      setImages([...data]);
+    };
+    fetchImagesFromExpress();
+  }, []);
+
+  const handleSearchSubmit = async (e) => {
     e.preventDefault();
-    fetch(
-      `https://api.unsplash.com/photos/random/?query=${word}&client_id=${UNSPLASH_KEY}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setImages([{ ...data, title: word }, ...images]);
-      })
-      .catch((err) => {
-        console.log(err);
+    try {
+      const { data } = await axios.post("http://localhost:5000/api/image", {
+        title: word,
       });
-    setWord("");
+
+      setImages([{ ...data, title: word }, ...images]);
+      setWord("");
+    } catch (e) {
+      console.error(e);
+      setWord("");
+    }
   };
-  const handleDeleteImag = (id) => {
-    setImages(images.filter((image) => image.id !== id));
+  const handleDeleteImag = async (id) => {
+    // setImages(images.filter((image) => image.id !== id));
+    const { data } = await axios.delete(
+      `http://localhost:5000/api/images/${id}`
+    );
+
+    setImages([...data]);
   };
   return (
     <div>
