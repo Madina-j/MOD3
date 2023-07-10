@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "server.cjs",
+    "dev": "nodemon server.cjs",
     "start": "node server.cjs"
   },
   "keywords": [],

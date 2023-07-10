@@ -1,7 +1,7 @@
 import React from "react";
 import { Jumbotron, Button } from "react-bootstrap";
 
-export const Welcome = () => {
+export const Welcome = () => (
   <Jumbotron>
     <h1>Images Gallery</h1>
     <p>
@@ -13,5 +13,5 @@ export const Welcome = () => {
         Learn more
       </Button>
     </p>
-  </Jumbotron>;
-};
+  </Jumbotron>
+);
