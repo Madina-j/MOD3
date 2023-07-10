@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const Model = require("../model/model");
+
 module.exports = router;
 
 //Post Method
