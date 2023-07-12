@@ -1,0 +1,4 @@
+,
+    "install": "cd Frontend && npm i && cd .. && cd Backend && npm i && cd ..",
+    "render:start": "cd Backend && node server.cjs",
+    "render:buildCommand": "npm run install && cd Frontend && npm run build && cd .."
