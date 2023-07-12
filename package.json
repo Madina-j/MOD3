@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
-    "install": "cd frontend && npm i && cd .. && cd backend && npm i && cd ..",
-    "render:start": "cd backend && node server.cjs",
-    "render:buildCommand": "npm run install && cd frontend && npm run build && cd .."
-
+    "dev": "concurrently \"cd Frontend && npm run dev\" \"cd Backend && npm run dev\"",
+    "install": "cd Frontend && npm i && cd .. && cd Backend && npm i && cd ..",
+    "render:start": "cd Backend && node server.cjs",
+    "render:buildCommand": "npm run install && cd Frontend && npm run build && cd .."
   },
   "keywords": [],
   "author": "",
