@@ -7,7 +7,7 @@ export const FullImg = () => {
   const { id } = useParams();
   const [image, setImage] = useState();
 
-  useState(() => {
+  useEffect(() => {
     const fetchImageFromBackend = async () => {
       try {
         const { data } = await axios.get(
