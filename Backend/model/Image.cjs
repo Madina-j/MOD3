@@ -10,6 +10,7 @@ const Image = new mongoose.Schema({
   alt_description: { type: String },
   urls: {
     small: { type: String },
+    full: { type: String },
   },
 });
 

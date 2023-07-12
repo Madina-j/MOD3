@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-export const FullImg = ({ image }) => {
+export const FullImg = () => {
+  const { id } = useParams();
+  const [image, setImage] = useState();
+
+  useState(() => {
+    const fetchImageFromBackend = async () => {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:5000/api/images/${id}`
+        );
+
+        setImage(data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchImageFromBackend();
+  }, []);
+
   return (
-    <Container>
-      <Image src="image.urls.small" fluid />
-    </Container>
+    <Container>{image && <Image src={image.urls.full} fluid />}</Container>
   );
 };

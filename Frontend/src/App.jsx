@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/full" element={<FullImg />} />
+      <Route path="/full/:id" element={<FullImg />} />
     </Routes>
   );
 };

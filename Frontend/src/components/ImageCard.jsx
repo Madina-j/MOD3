@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const ImageCard = ({ image, deleteImage }) => {
   return (
     <Card style={{ width: "18rem" }}>
-      <Link to="/full" target="_blank">
+      <Link to={`/full/${image.id}`} target="_blank" rel="noopener noreferrer">
         <Card.Img variant="top" src={image.urls.small} />
       </Link>
       <Card.Body>

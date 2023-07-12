@@ -58,3 +58,16 @@ router.delete("/images/:imageId", async (req, res) => {
     res.status(500).json({ error: "error while deleting imageg" });
   }
 });
+router.get("/images/:imageId", async (req, res) => {
+  try {
+    const imageId = req.params.imageId;
+
+    const { data } = await axios.get(
+      `https://api.unsplash.com/photos/${imageId}/?client_id=${process.env.UNSPLASH_KEY}`
+    );
+    res.status(200).json(data);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "error while deleting imageg" });
+  }
+});
