@@ -36,9 +36,7 @@ export const Home = () => {
   };
   const handleDeleteImag = async (id) => {
     // setImages(images.filter((image) => image.id !== id));
-    const { data } = await axios.delete(
-      `http://localhost:5000/api/images/${id}`
-    );
+    const { data } = await axios.delete(`/api/images/${id}`);
 
     setImages([...data]);
   };
