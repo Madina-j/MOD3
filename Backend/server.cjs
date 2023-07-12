@@ -8,6 +8,8 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static("dist"));
+
 app.use("/api", routes);
 app.get("/", (req, res) => {
   res.send("OK");
@@ -21,7 +23,7 @@ const start = async () => {
       `mongodb+srv://${process.env.MONGO_LOGIN}:${process.env.MONGO_PASSWORD}@cluster0.xx4op9u.mongodb.net/`
     );
     app.listen(5000, () => {
-      console.log(`Server Started at ${5000}`);
+      console.log("server serves static files");
     });
   } catch (e) {}
 };
