@@ -4,7 +4,12 @@ const dotenv = require("dotenv");
 const app = express();
 const routes = require("./routers/routes.cjs");
 const cors = require("cors");
-
+const path = require("path");
+app.get("/*", function (req, res) {
+  res.sendFile("index.html", {
+    root: path.join(__dirname, "./dist"),
+  });
+});
 app.use(cors());
 app.use(express.json());
 
