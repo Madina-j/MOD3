@@ -14,7 +14,7 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchImagesFromExpress = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/images");
+      const { data } = await axios.get("/api/images");
       setImages([...data]);
     };
     fetchImagesFromExpress();
@@ -23,7 +23,7 @@ export const Home = () => {
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:5000/api/image", {
+      const { data } = await axios.post("/api/image", {
         title: word,
       });
 
