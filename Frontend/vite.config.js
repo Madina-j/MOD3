@@ -13,4 +13,9 @@ export default defineConfig({
     }),
   ],
   build: { outDir: "../backend/dist" },
+  server: {
+    proxy: {
+      "/api/images/": "http://localhost:5000",
+    },
+  },
 });
