@@ -3,7 +3,7 @@ Introduction: Welcome to our website, where you can easily find images associate
 VS my Introduction:  My site allows to find an image. You can to enter in search bar any words and the Image Gallery will find for you an image associated with this words.
 
 Technologies Used: I used: Vite,API: [Unsplash](https://unsplash.com), Express, MondoDB(Mongoos), deployed on render.com 
-Getting Started: you can clone my project and start project "npm run dev" in root folder.
+Getting Started: you can clone (https://github.com/Madina-j/MOD3.git) my project and start project "npm run dev" in root folder.
 Unsolved Problems: List any unsolved issues.
 Future Enhancements: I'll extend functionality, add the buttons under particular image with size and download
 Link: https://mod3-ussj.onrender.com
